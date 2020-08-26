@@ -15,19 +15,19 @@ type (
 	ConnectorV1 struct {
 		Addr   string
 		client *es1.Client
-		logger *logrus.Logger
+		Logger *logrus.Logger
 	}
 
 	ConnectorV7 struct {
 		Addr   string
 		client *es7.Client
-		logger *logrus.Logger
+		Logger *logrus.Logger
 	}
 )
 
 func (con *ConnectorV1) Initiation() error {
 	// Initiation logger
-	con.logger = &logrus.Logger{
+	con.Logger = &logrus.Logger{
 		Out:   os.Stderr,
 		Level: logrus.DebugLevel,
 		Formatter: &prefixed.TextFormatter{
@@ -42,14 +42,14 @@ func (con *ConnectorV1) Initiation() error {
 		return err
 	}
 	con.client = client
-	con.logger.Infof("Initializing connection to Elasticsearch [%s]", con.Addr)
+	con.Logger.Infof("Initializing connection to Elasticsearch [%s]", con.Addr)
 	// Success
 	return nil
 }
 
 func (con *ConnectorV7) Initiation() error {
 	// Initiation logger
-	con.logger = &logrus.Logger{
+	con.Logger = &logrus.Logger{
 		Out:   os.Stderr,
 		Level: logrus.DebugLevel,
 		Formatter: &prefixed.TextFormatter{
@@ -64,7 +64,7 @@ func (con *ConnectorV7) Initiation() error {
 		return err
 	}
 	con.client = client
-	con.logger.Infof("Initializing connection to Elasticsearch [%s]", con.Addr)
+	con.Logger.Infof("Initializing connection to Elasticsearch [%s]", con.Addr)
 	// Success
 	return nil
 }
