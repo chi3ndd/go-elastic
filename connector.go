@@ -37,7 +37,7 @@ func (con *ConnectorV1) Initiation() error {
 			ForceFormatting: true,
 		},
 	}
-	client, err := es1.NewSimpleClient(es1.SetURL(fmt.Sprintf("https://%s", con.Addr)))
+	client, err := es1.NewSimpleClient(es1.SetURL(fmt.Sprintf("http://%s", con.Addr)))
 	if err != nil {
 		return err
 	}
@@ -59,7 +59,7 @@ func (con *ConnectorV7) Initiation() error {
 			ForceFormatting: true,
 		},
 	}
-	client, err := es7.NewSimpleClient(es7.SetURL(fmt.Sprintf("https://%s", con.Addr)))
+	client, err := es7.NewSimpleClient(es7.SetURL(fmt.Sprintf("http://%s", con.Addr)))
 	if err != nil {
 		return err
 	}
